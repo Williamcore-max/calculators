@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <title>Document</title>
+    <link rel="stylesheet" href="calculator.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Simple Calculator</h1>
+      <p><strong>Enter the first number</strong></p>
+      <input id="num1" type="number" />
+      <br />
+      <p><strong>Enter the second number</strong></p>
+      <input id="num2" type="number" />
+      <div>
+        <p><strong>Choose the operator</strong></p>
+        <div style="display: flex" class="operators">
+          <button id="addition" style="width: 100px; height: 40px; background-color: grey">+</button>
+
+          <button id="subtraction" style="width: 100px; height: 40px; background-color: grey">-</button>
+
+          <button id="multiplication" style="width: 100px; height: 40px; background-color: grey">*</button>
+
+          <button id="division" style="width: 100px; height: 40px; background-color: grey">/</button>
+        </div>
+        <br />
+        <div class="result">
+          <button id="equals" style="background-color: green; color: white; width: 100px; height: 40px">Calculate</button>
+          <button id="reset" style="background-color: red; color: white; width: 100px; height: 40px">Reset</button>
+        </div>
+        <h2 id="result">Result:</h2>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    //const now = new Date();
+    //console.log(now);
+
+    //let now = new Date();
+    //console.log(now.getHours());
+    //console.log(now.getFullYear());
+  </script>
+
+  <script>
+    let operators = "";
+    function getNumbers() {
+      const num1 = Number(document.getElementById("num1").value);
+      const num2 = Number(document.getElementById("num2").value);
+      return [num1, num2];
+    }
+
+    document.getElementById("addition").addEventListener("click", function () {
+      const [num1, num2] = getNumbers();
+      document.getElementById("equals").addEventListener("click", function () {
+        document.getElementById("result").textContent = num1 + num2;
+      });
+    });
+    document.getElementById("subtraction").addEventListener("click", function () {
+      const [num1, num2] = getNumbers();
+      document.getElementById("equals").addEventListener("click", function () {
+        document.getElementById("result").textContent = num1 - num2;
+      });
+    });
+    document.getElementById("multiplication").addEventListener("click", function () {
+      const [num1, num2] = getNumbers();
+      document.getElementById("equals").addEventListener("click", function () {
+        document.getElementById("result").textContent = num1 * num2;
+      });
+    });
+    document.getElementById("division").addEventListener("click", function () {
+      const [num1, num2] = getNumbers();
+      document.getElementById("equals").addEventListener("click", function () {
+        document.getElementById("result").textContent = num1 / num2;
+      });
+    });
+    document.getElementById("reset").addEventListener("click", function () {
+      document.getElementById("num1").value = "";
+      document.getElementById("num2").value = "";
+      document.getElementById("result").textContent = "Result:";
+    });
+  </script>
+</html>
